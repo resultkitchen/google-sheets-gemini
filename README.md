@@ -1,163 +1,112 @@
-# google-sheets-gemini
-🤔 Tired of paying monthly subscriptions just to use AI in Google Sheets? Here's a SIMPLE, forever-free script that gives you Gemini AI right in your spreadsheet. No coding knowledge needed!
+# Google Sheets Gemini Pro Integration
+🚀 A lightning-fast, free integration of Google's Gemini Pro AI into Google Sheets. No subscriptions, no complexity - just powerful AI in your spreadsheet.
 
-# What is This?
+## What's New in v2.0
 
-This is a simple script that adds a `=GEMINI()` formula to your Google Sheet. Just like you use `=SUM()` or `=AVERAGE()`, you can now use `=GEMINI()` to ask AI questions directly in your cells. And the best part? It's completely free - you just need Google's free API key.
+* ⚡ **Optimized Performance**: Dramatically faster response times
+* 🔄 **Smart Caching**: Improved API key handling for faster execution
+* 📊 **Response Time Analytics**: Built-in latency testing and logging
+* 🎯 **Enhanced Rate Limiting**: More efficient request management
+* 🛠️ **Developer Tools**: Added testing and debugging features
 
-## Why This is Awesome
+## Why Choose This Integration?
 
-* 🆓 **Forever Free**: Just get a free API key from Google - no subscriptions, no hidden fees
-* 🔌 **Super Simple Setup**: Copy, paste, done. Seriously.
-* ⚡ **Fast**: Built-in caching means repeated queries are instant
-* 🛡️ **Safe**: Your API key stays private in your own Google Sheet
-* 🎯 **Just Works**: No coding knowledge required
+* 🆓 **Forever Free**: Uses Google's free Gemini Pro API
+* ⚡ **High Performance**: Optimized for speed and reliability
+* 🔌 **Easy Setup**: Copy, paste, and you're running
+* 🛡️ **Secure**: Your API key stays in your Google Sheet
+* 📈 **Production Ready**: Built for reliability at scale
 
-## 5-Minute Setup
+## Quick Setup
 
 1. Open your Google Sheet
-2. Click "Extensions" > "Apps Script" at the top
-3. Delete any code you see and paste in our code (from the Code.gs file above)
-4. Save and close that tab
-5. Get your free API key:
-   * Go to https://aistudio.google.com
-   * Click "Get API key" in the top right
-   * Create a new API key (it's free!)
-   * Copy the key
-6. Back in your sheet, refresh the page
-7. You'll see a new "Gemini" menu - click it and paste in your API key
+2. Go to "Extensions" > "Apps Script"
+3. Replace any code with our script (from Code.gs)
+4. Save and close
+5. Get your API key:
+   * Visit https://aistudio.google.com
+   * Click "Get API Key" (top right)
+   * Create a new key (free)
+   * Copy it
+6. Refresh your sheet
+7. Use the "Gemini" menu to enter your key
 
-That's it! You're ready to use AI in your spreadsheet! 🎉
+## Basic Usage
 
-## How to Use It
+=GEMINI("Your prompt here")
 
-Just type this in any cell:
-```
-=GEMINI("Your question here")
-```
 
-For example:
-```
-=GEMINI("Write a professional email to thank someone for their time")
-```
+Example prompts:
+* `=GEMINI("Write a professional email about: " & A1)`
+* `=GEMINI("Translate to Spanish: " & B1)`
+* `=GEMINI("Analyze these numbers: " & C1:C10)`
 
-### Real-World Examples
+## Performance Features
 
-* **Content Writing**: `=GEMINI("Write a product description for: " & A1)`
-* **Translation**: `=GEMINI("Translate to Spanish: " & B1)`
-* **Analysis**: `=GEMINI("Analyze this sales trend: " & C1)`
-* **Summaries**: `=GEMINI("Summarize this text: " & D1)`
-* **Email Writing**: `=GEMINI("Write a professional email about: " & E1)`
+### Speed Optimization
+* Cached API key handling
+* Efficient rate limiting
+* Response time logging
+* Built-in latency testing
 
-## Power User Features
+### Rate Limiting
+* 300 requests per minute capacity
+* Smart request queuing
+* Automatic retry on 429 errors
 
-Want to get fancy? You can:
-* Cache responses for 6 hours (saves on API usage)
-* Limit to 60 requests per minute (prevents API overuse)
-* Auto-convert formulas to static text (great for saving important responses)
-* Add system prompts for more specific instructions
+### Monitoring
+* Test response times via menu
+* Detailed execution logs
+* Performance breakdown by operation
 
-### Advanced Formula (Optional)
-```
-=GEMINI("Your question", "Optional system prompt", 0.7, true)
-```
+## Advanced Features
 
-## Need Help?
+### Formula Options
+=GEMINI("prompt", "system_prompt", temperature)
 
-* If you get stuck, check that you:
-  * Copied ALL the code
-  * Got your API key from Google AI Studio
-  * Pasted your API key using the Gemini menu
-  * Refreshed your sheet after setup
 
-Still have questions? Open an issue in this repo! 
+Parameters:
+* `prompt`: Your main query
+* `system_prompt`: Additional instructions (optional)
+* `temperature`: Creativity level 0-1 (default: 0.7)
 
-## Why I Made This
+### Utility Functions
+* Test response times
+* Convert formulas to values
+* Monitor API usage
 
-I got tired of seeing simple AI features locked behind expensive subscriptions. Google provides free access to Gemini - we should all be able to use it easily in our spreadsheets! 
+## Debugging
 
-Enjoy your free AI-powered spreadsheet! 🚀
+Added "Test Response Time" in the Gemini menu to check:
+* API response speed
+* Total execution time
+* Component-level timing
 
-# Advanced Features Guide
+## Common Issues
 
-Don't worry - all these features work automatically! But here's how to control them if you want to:
+If you experience slow responses:
+* Check your network connection
+* Run the latency test
+* Review execution logs
+* Verify API key validity
 
-## Caching (Save API Costs)
+## Contributing
 
-The script automatically saves responses for 6 hours. This means:
-* If you ask "What is 2+2?" in cell A1
-* Then copy that formula to A2
-* The second call won't use your API quota - it's free!
+Found a way to make it even faster? We love contributions! Please:
+1. Fork the repository
+2. Create a feature branch
+3. Submit a pull request
 
-You don't need to do anything - this happens automatically to save you money and make responses faster.
+## Support
 
-## Rate Limiting (Prevent Overuse)
+* Create an issue for bugs/features
+* Check execution logs for troubleshooting
+* Run latency tests for performance issues
 
-The script automatically limits itself to 60 requests per minute to keep you within Google's free limits. If you hit the limit:
-* You'll see "Rate limit exceeded. Please try again later."
-* Just wait a minute and try again
-* The limit resets automatically
+## License
 
-This protects your API key from accidental overuse (like if you drag a formula down 1000 cells).
+MIT License - Free for commercial and personal use
 
-## Auto-Converting Formulas (Save Important Responses)
+---
 
-Sometimes you want to keep an AI response exactly as it is, without it changing if you modify the formula. Here's how:
-
-1. Click the "Gemini" menu at the top
-2. Select "Toggle Auto-Convert to Values"
-3. When enabled:
-   * Your GEMINI formulas will automatically convert to plain text
-   * This "locks in" the response
-   * Great for important content you want to keep
-
-You can also do this for individual formulas using the advanced formula.
-
-## Advanced Formula Explained
-
-The basic formula is:
-```
-=GEMINI("Write a thank you email")
-```
-
-The advanced formula has more options:
-```
-=GEMINI("Write a thank you email", "Make it formal and professional", 0.7, true)
-```
-
-Let's break this down in simple terms:
-
-1. First part: Your question or prompt
-   * `"Write a thank you email"`
-   * This is what you want Gemini to do
-
-2. Second part: System prompt (optional)
-   * `"Make it formal and professional"`
-   * This gives Gemini extra instructions
-   * Like telling a person "Oh, and make sure it's..."
-
-3. Third part: Temperature (optional)
-   * `0.7` is the default
-   * Lower (like 0.2) = more focused, repetitive responses
-   * Higher (like 0.8) = more creative, varied responses
-   * Think of it like a "creativity knob"
-
-4. Fourth part: Auto-convert (optional)
-   * `true` or `false`
-   * `true` = convert formula to text immediately
-   * `false` = keep as formula (default)
-   * Use `true` when you want to "lock in" a good response
-
-Examples:
-
-More focused response:
-```
-=GEMINI("Write a thank you email", "Keep it under 3 sentences", 0.2, false)
-```
-
-Creative response that saves automatically:
-```
-=GEMINI("Write a thank you email", "Make it witty and fun", 0.9, true)
-```
-
-Remember: You only need these advanced options if you want them. The basic `=GEMINI("...")` works great for most uses!
+Made with ⚡ by developers who believe AI should be fast, free, and accessible to everyone.
